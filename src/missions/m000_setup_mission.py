@@ -30,7 +30,7 @@ class M000SetupMission(SetupMission):
             # arm start position
             Defs.arm_claw.closed(),
             arm.move_angles(0, 90, 0),
-            arm.move_angles(-80, 100, 90),
+            arm.move_angles(0, 55, -62),
 
             fully_disable_servos(),
 
