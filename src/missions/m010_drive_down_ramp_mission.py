@@ -26,12 +26,12 @@ class M010DriveDownRampMission(Mission):
             ),
 
             line_follow().until(
-                after_cm(27)
+                after_cm(25)
             ),
 
             spline(
-                (0, -7, 0),
-                (8.5, -7, 0),
+                (0, -9, 0),
+                (10, -9, 0),
             ),
 
             Defs.arm_claw.soft_close(),
