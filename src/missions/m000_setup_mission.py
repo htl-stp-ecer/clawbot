@@ -24,7 +24,7 @@ class M000SetupMission(SetupMission):
             pause_setup_timer(),
             fully_disable_servos(),
 
-            wait_for_button("move servos into starting position"),
+            #wait_for_button("move servos into starting position"),
             start_setup_timer(),  # countdown begins here, full duration
 
             # arm start position
@@ -40,7 +40,7 @@ class M000SetupMission(SetupMission):
             #    characterize_axes=["lateral"]
             # ),
             calibrate(
-                distance_cm=70,
+                distance_cm=30,
                 calibration_sets=["default", "upper"],
             ),
         ])
