@@ -21,6 +21,10 @@ class M010DriveDownRampMission(Mission):
             switch_calibration_set("default"),
             mark_heading_reference(),
 
+            #background(
+            #    wait_for_button("visit www.htlstp.ac.at"),
+            #),
+
             background(
                 Defs.arm_claw.p90deg(),
             ),
@@ -37,8 +41,15 @@ class M010DriveDownRampMission(Mission):
             Defs.arm_claw.soft_close(),
             arm.move_angles(0, 55, -30),
 
-            drive_backward(20),
+            parallel(
+                drive_backward(40),
+                seq([
+                    wait_for_seconds(0.5),
+                    arm.move_angles(100, 90, -60),
+                    Defs.arm_claw.p90deg(),
+                    wait_for_seconds(0.2),
+                    arm.move_angles(0, 90, -40),
+                ])
+            ),
 
-            arm.move_angles(45, 45, -70),
-            Defs.arm_claw.p90deg(),
         ])
